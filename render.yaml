@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: sana
+    runtime: docker
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: PORT
+        value: "8000"

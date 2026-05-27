@@ -1,0 +1,8 @@
+.env
+sana_memory.json
+__pycache__
+*.pyc
+.git
+.cursor
+code.py
+requirements-cli.txt
