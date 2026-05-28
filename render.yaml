@@ -1,11 +1,9 @@
 services:
   - type: web
-    name: sana
+    name: sana-emotional-support
     runtime: docker
     plan: free
-    healthCheckPath: /
+    healthCheckPath: /health
     envVars:
       - key: GROQ_API_KEY
         sync: false
-      - key: PORT
-        value: "8000"

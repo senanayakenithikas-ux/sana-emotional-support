@@ -21,7 +21,7 @@ STATIC_DIR = Path(__file__).parent / "static"
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    sana_core.get_whisper_model()
+    # Whisper loads on first /api/transcribe — keeps deploy health checks fast
     yield
 
 
@@ -59,6 +59,11 @@ async def service_worker():
         media_type="application/javascript",
         headers={"Cache-Control": "no-cache"},
     )
+
+
+@app.get("/health")
+async def health():
+    return {"ok": True}
 
 
 @app.get("/")
